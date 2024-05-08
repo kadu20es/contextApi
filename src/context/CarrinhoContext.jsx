@@ -35,12 +35,9 @@ export const CarrinhoProvider = ({ children }) => {
     return (
         <CarrinhoContext.Provider value={{
             carrinho,
-            //setCarrinho, ----> removido com o uso do useReducer()
             dispatch,
             quantidade,
-            //setQuantidade, ----> removido com o uso do useReducer()
             valorTotal,
-            //setValorTotal ----> removido com o uso do useReducer()
             }}
         >
             {children}

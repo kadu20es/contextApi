@@ -26,30 +26,8 @@ export const useCarrinhoContext = () => {
         payload: { produtoId, quantidade },
     });
 
-    /*
-    function mudarQuantidade (id, quantidade) {
-        console.log(id, quantidade)
-        return carrinho.map((itemDoCarrinho) => { // retorno da função
-            if (itemDoCarrinho.id === id) itemDoCarrinho.quantidade += quantidade;
-            return itemDoCarrinho; // retorno do map
-        });
-    }*/
-
     function adicionarProduto (novoProduto) {
         dispatch(addProdutoAction(novoProduto));
-        /*const temOProduto = carrinho.some((itemDoCarrinho) => (itemDoCarrinho.id === novoProduto.id)) // verifica se tem um produto no carrinho
-
-        if (!temOProduto) {
-            novoProduto.quantidade = 1;
-            return setCarrinho((carrinhoAnterior) => [
-                ...carrinhoAnterior,
-                novoProduto
-            ]);
-        }
-
-        const carrinhoAtualizado = mudarQuantidade(novoProduto.id, 1);
-
-        setCarrinho([...carrinhoAtualizado]);*/
     }
 
     function removerProduto (id) {
@@ -60,22 +38,10 @@ export const useCarrinhoContext = () => {
         } else {
             dispatch(removeProdutoAction(id));
         }
-       /* const produto = carrinho.find((itemDoCarrinho) => itemDoCarrinho.id === id);
-        const ehOUltimo = produto.quantidade === 1; // true or false
-        if (ehOUltimo) {
-            return setCarrinho((carrinhoAnterior) => carrinhoAnterior.filter((itemDoCarrinho) => itemDoCarrinho.id !== id));
-        }
-
-        const carrinhoAtualizado = mudarQuantidade(id, -1);
-
-        setCarrinho([...carrinhoAtualizado]);*/
     }
 
     function removerProdutoCarrinho (id) {
         dispatch(removeProdutoAction(id));
-        /*const listaProdutos = carrinho.filter((itemDoCarrinho) => (itemDoCarrinho.id !== id));
-        setCarrinho(listaProdutos);
-        console.log(carrinho);*/
     }
 
     return {
